@@ -157,7 +157,7 @@ def generate_vectors():
         'material_vector': material_vector,
         'series_vector': series_vector,
         'color_vector': color_vector
-    }), print(data['color'])
+    })
 
 @app.route('/get_similarity', methods=['POST'])
 def get_similarity():
@@ -211,7 +211,7 @@ def get_similarity():
     recommendation = sorted(recommendations, key=lambda x: (x[prioritas], x["average_similarity"]), reverse=True)[:16]
 
     # return hasil rekomendasi
-    return jsonify(recommendation), print(len(recommendation))
+    return jsonify(recommendation), ,print("sukses chatbot")
 
 @app.route('/get_search_recommendation', methods=['POST'])
 def get_search_recommendation():
@@ -432,7 +432,7 @@ def get_search_recommendation():
     # conn.close()
 
     # Kembalikan hasil similarity
-    return jsonify(recommendations),print(pd.DataFrame(recommendations))
+    return jsonify(recommendations),print("sukses")
 
 
 # if __name__ == '__main__':
