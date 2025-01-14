@@ -399,38 +399,6 @@ def get_search_recommendation():
         )[:50]
     
 
-    # conn = pymysql.connect(host='localhost', user='root', password='', db='shoes-soccer')
-    # cursor = conn.cursor()
-    # cursor.execute("DELETE FROM search_recommendation")
-    # conn.commit()
-    
-    # no = 1
-
-    # # Insert hasil similarity ke database
-    # for recommendation in recommendations:
-    #     sql = """
-    #         INSERT INTO search_recommendation 
-    #         (no, shoes_id, brand_similarity, material_similarity, position_similarity, series_similarity,
-    #         color_similarity, surface_similarity, average_similarity)
-    #         VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
-    #     """
-    #     data = (
-    #         no,
-    #         recommendation['shoes_id'],
-    #         recommendation['brand_similarity'],
-    #         recommendation['material_similarity'],
-    #         recommendation['position_similarity'],
-    #         recommendation['series_similarity'],
-    #         recommendation['color_similarity'],
-    #         recommendation['surface_similarity'],
-    #         recommendation['average_similarity']
-    #     )
-    #     cursor.execute(sql, data)
-    #     no += 1
-
-    # conn.commit()
-    # conn.close()
-
     # Kembalikan hasil similarity
     return jsonify(recommendations),print("sukses")
 
