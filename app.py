@@ -4,7 +4,6 @@ from gensim.models import Word2Vec
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 import pandas as pd
-import pymysql
 import ast
 import json
 import re
