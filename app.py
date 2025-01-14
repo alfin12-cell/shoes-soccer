@@ -211,7 +211,7 @@ def get_similarity():
     recommendation = sorted(recommendations, key=lambda x: (x[prioritas], x["average_similarity"]), reverse=True)[:16]
 
     # return hasil rekomendasi
-    return jsonify(recommendation), print(products)
+    return jsonify(recommendation), print(len(recommendation))
 
 @app.route('/get_search_recommendation', methods=['POST'])
 def get_search_recommendation():
