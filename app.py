@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
 from sklearn.metrics.pairwise import cosine_similarity
 from gensim.models import Word2Vec
-from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 import pandas as pd
 import ast
@@ -434,7 +433,8 @@ def get_search_recommendation():
 
     # Kembalikan hasil similarity
     return jsonify(recommendations),print(pd.DataFrame(recommendations))
-
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", port=5000, debug=True)
 
 
 
