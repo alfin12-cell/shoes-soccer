@@ -212,7 +212,10 @@ def get_similarity():
 
     # return hasil rekomendasi
     # return jsonify(recommendation),print("sukses chatbot")
-    return(products['color_vector'][0],user_vector['color_vector'])
+    # return(products['color_vector'][0],user_vector['color_vector'])
+    brand1 = products[0]['brand_vector']
+    brand2 = user_vector['brand_vector']
+    return print(brand1),print(brand2),print(type(brand1)), print(type(brand2))
 
 @app.route('/get_search_recommendation', methods=['POST'])
 def get_search_recommendation():
