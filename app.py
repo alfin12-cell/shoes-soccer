@@ -201,17 +201,18 @@ def get_similarity():
         product for product in products if min_price <= int(product['price']) < max_price
     ]
 
-    # Hitung similarity antara data pengguna dan produk yang sudah difilter
-    recommendations = []
-    for product in filtered_products:
-        similarities = get_chatbot_similarity(product, user_vectors)
-        recommendations.append(similarities)
+    # # Hitung similarity antara data pengguna dan produk yang sudah difilter
+    # recommendations = []
+    # for product in filtered_products:
+    #     similarities = get_chatbot_similarity(product, user_vectors)
+    #     recommendations.append(similarities)
 
-    # Urutkan berdasarkan average_similarity dan ambil 16 produk dengan similarity tertinggi
-    recommendation = sorted(recommendations, key=lambda x: (x[prioritas], x["average_similarity"]), reverse=True)[:16]
+    # # Urutkan berdasarkan average_similarity dan ambil 16 produk dengan similarity tertinggi
+    # recommendation = sorted(recommendations, key=lambda x: (x[prioritas], x["average_similarity"]), reverse=True)[:16]
 
     # return hasil rekomendasi
-    return jsonify(recommendation),print("sukses chatbot")
+    # return jsonify(recommendation),print("sukses chatbot")
+    return(product['color_vector'][0],user_vector['color_vector'])
 
 @app.route('/get_search_recommendation', methods=['POST'])
 def get_search_recommendation():
