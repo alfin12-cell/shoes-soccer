@@ -212,7 +212,7 @@ def get_similarity():
 
     # return hasil rekomendasi
     # return jsonify(recommendation),print("sukses chatbot")
-    return(product['color_vector'][0],user_vector['color_vector'])
+    return(products['color_vector'][0],user_vector['color_vector'])
 
 @app.route('/get_search_recommendation', methods=['POST'])
 def get_search_recommendation():
