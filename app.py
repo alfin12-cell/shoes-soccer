@@ -339,68 +339,69 @@ def get_search_recommendation():
     filtered_products = [
         product for product in products if min_price <= int(product['price']) < max_price
     ]
+    return print(search_input_vector['position_vector'])
     
-    recommendations = []
+    # recommendations = []
 
-    if is_price_only:
-        for product in filtered_products:
-            similarities = get_search_similarity(product, search_input_vector)
-            recommendations.append(similarities)
+    # if is_price_only:
+    #     for product in filtered_products:
+    #         similarities = get_search_similarity(product, search_input_vector)
+    #         recommendations.append(similarities)
 
-    elif is_brand_only:
-        for product in filtered_products:
-            similarities = get_search_similarity(product, search_input_vector)
-            if np.isclose(similarities["brand_similarity"], 1.0):
-                recommendations.append(similarities)
-    elif is_color_only:
-        for product in filtered_products:
-            similarities = get_search_similarity(product, search_input_vector)
-            if np.isclose(similarities["color_similarity"], 1.0):
-                recommendations.append(similarities)
+    # elif is_brand_only:
+    #     for product in filtered_products:
+    #         similarities = get_search_similarity(product, search_input_vector)
+    #         if np.isclose(similarities["brand_similarity"], 1.0):
+    #             recommendations.append(similarities)
+    # elif is_color_only:
+    #     for product in filtered_products:
+    #         similarities = get_search_similarity(product, search_input_vector)
+    #         if np.isclose(similarities["color_similarity"], 1.0):
+    #             recommendations.append(similarities)
 
-    elif is_surface_only:
-        for product in filtered_products:
-            similarities = get_search_similarity(product, search_input_vector)
-            if np.isclose(similarities["surface_similarity"], 1.0):
-                recommendations.append(similarities)
+    # elif is_surface_only:
+    #     for product in filtered_products:
+    #         similarities = get_search_similarity(product, search_input_vector)
+    #         if np.isclose(similarities["surface_similarity"], 1.0):
+    #             recommendations.append(similarities)
 
-    elif is_material_only:
-        for product in filtered_products:
-            similarities = get_search_similarity(product, search_input_vector)
-            if np.isclose(similarities["material_similarity"], 1.0):
-                recommendations.append(similarities)
+    # elif is_material_only:
+    #     for product in filtered_products:
+    #         similarities = get_search_similarity(product, search_input_vector)
+    #         if np.isclose(similarities["material_similarity"], 1.0):
+    #             recommendations.append(similarities)
 
-    elif is_series_only:
-        for product in filtered_products:
-            similarities = get_search_similarity(product, search_input_vector)
-            if np.isclose(similarities["series_similarity"], 1.0):
-                recommendations.append(similarities)
+    # elif is_series_only:
+    #     for product in filtered_products:
+    #         similarities = get_search_similarity(product, search_input_vector)
+    #         if np.isclose(similarities["series_similarity"], 1.0):
+    #             recommendations.append(similarities)
 
-    elif is_position_only:
-        for product in filtered_products:
-            similarities = get_search_similarity(product, search_input_vector)
-            if np.isclose(similarities["position_similarity"], 1.0):
-                recommendations.append(similarities)
+    # elif is_position_only:
+    #     for product in filtered_products:
+    #         similarities = get_search_similarity(product, search_input_vector)
+    #         if np.isclose(similarities["position_similarity"], 1.0):
+    #             recommendations.append(similarities)
 
-    else:
-        for product in filtered_products:
-            similarities = get_search_similarity(product, search_input_vector)
-            if similarities["average_similarity"] > 0:
-                recommendations.append(similarities)
+    # else:
+    #     for product in filtered_products:
+    #         similarities = get_search_similarity(product, search_input_vector)
+    #         if similarities["average_similarity"] > 0:
+    #             recommendations.append(similarities)
 
-        # Sorting recommendations by 'average_similarity' after the loop
-        recommendations = sorted(
-            recommendations, 
-            key=lambda x: (
-                0 if x['color_similarity'] < 1 else x['color_similarity'],  
-                x["average_similarity"]
-            ), 
-            reverse=True
-        )[:50]
+    #     # Sorting recommendations by 'average_similarity' after the loop
+    #     recommendations = sorted(
+    #         recommendations, 
+    #         key=lambda x: (
+    #             0 if x['color_similarity'] < 1 else x['color_similarity'],  
+    #             x["average_similarity"]
+    #         ), 
+    #         reverse=True
+    #     )[:50]
     
 
-    # Kembalikan hasil similarity
-    return jsonify(recommendations),print("sukses")
+    # # Kembalikan hasil similarity
+    # return jsonify(recommendations),print("sukses")
 
 
 # if __name__ == '__main__':
