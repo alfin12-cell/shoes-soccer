@@ -52,29 +52,29 @@ def get_chatbot_similarity (row, user_vectors):
 def get_search_similarity(row, user_vectors):
     # Menghitung cosine similarity untuk vektor-vektor
     color_similarity = cosine_similarity([ast.literal_eval(row["color_vector"])], [user_vectors["color_vector"]])[0][0]
-    # position_similarity = cosine_similarity([ast.literal_eval(row["position_vector"])], [user_vectors["position_vector"]])[0][0]
-    # surface_similarity = cosine_similarity([ast.literal_eval(row["surface_vector"])], [user_vectors["surface_vector"]])[0][0]
-    # brand_similarity = cosine_similarity([ast.literal_eval(row["brand_vector"])], [user_vectors["brand_vector"]])[0][0]
-    # material_similarity = cosine_similarity([ast.literal_eval(row['material_vector'])], [user_vectors["material_vector"]])[0][0]
-    # series_similarity = cosine_similarity([ast.literal_eval(row["series_vector"])], [user_vectors["series_vector"]])[0][0]
+    position_similarity = cosine_similarity([ast.literal_eval(row["position_vector"])], [user_vectors["position_vector"]])[0][0]
+    surface_similarity = cosine_similarity([ast.literal_eval(row["surface_vector"])], [user_vectors["surface_vector"]])[0][0]
+    brand_similarity = cosine_similarity([ast.literal_eval(row["brand_vector"])], [user_vectors["brand_vector"]])[0][0]
+    material_similarity = cosine_similarity([ast.literal_eval(row['material_vector'])], [user_vectors["material_vector"]])[0][0]
+    series_similarity = cosine_similarity([ast.literal_eval(row["series_vector"])], [user_vectors["series_vector"]])[0][0]
 
      # Membuat dictionary dengan hasil cosine similarity dan ID
-    # similarities = {
-    #     "shoes_id": row['shoes_id'],
-    #     "Nama Produk": row['shoes_name'],
-    #     "color_similarity": color_similarity,
-    #     "position_similarity": position_similarity,
-    #     "surface_similarity": surface_similarity,
-    #     "brand_similarity": brand_similarity,
-    #     "material_similarity": material_similarity,
-    #     "series_similarity": series_similarity
-    # }
+    similarities = {
+        "shoes_id": row['shoes_id'],
+        "Nama Produk": row['shoes_name'],
+        "color_similarity": color_similarity,
+        "position_similarity": position_similarity,
+        "surface_similarity": surface_similarity,
+        "brand_similarity": brand_similarity,
+        "material_similarity": material_similarity,
+        "series_similarity": series_similarity
+    }
 
     # Menghitung rata-rata dari similarity vektor (tanpa ID)
-    # vector_similarities = [color_similarity, position_similarity, surface_similarity, brand_similarity, material_similarity, series_similarity, color_similarity]
-    # similarities["average_similarity"] = np.mean(vector_similarities)
+    vector_similarities = [color_similarity, position_similarity, surface_similarity, brand_similarity, material_similarity, series_similarity, color_similarity]
+    similarities["average_similarity"] = np.mean(vector_similarities)
     
-    return color_similarity
+    return similarities
 
 def process_input(user_input, keywords):
     # Normalisasi input (lowercase, hapus tanda baca)
