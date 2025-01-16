@@ -58,7 +58,7 @@ def get_search_similarity(row, user_vectors):
     material_similarity = cosine_similarity([ast.literal_eval(row['material_vector'])], [user_vectors["material_vector"]])[0][0]
     series_similarity = cosine_similarity([ast.literal_eval(row["series_vector"])], [user_vectors["series_vector"]])[0][0]
 
-    # Membuat dictionary dengan hasil cosine similarity dan ID
+     # Membuat dictionary dengan hasil cosine similarity dan ID
     similarities = {
         "shoes_id": row['shoes_id'],
         "Nama Produk": row['shoes_name'],
@@ -157,7 +157,7 @@ def generate_vectors():
         'material_vector': material_vector,
         'series_vector': series_vector,
         'color_vector': color_vector
-    })
+    }), print('get vector berhasil')
 
 @app.route('/get_similarity', methods=['POST'])
 def get_similarity():
