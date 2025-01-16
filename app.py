@@ -51,7 +51,7 @@ def get_chatbot_similarity (row, user_vectors):
 
 def get_search_similarity(row, user_vectors):
     # Menghitung cosine similarity untuk vektor-vektor
-    color_similarity = cosine_similarity([ast.literal_eval(row["color_vector"])], [user_vectors["color_vector"]])[0][0]
+    color_similarity = cosine_similarity([ast.literal_eval(row[0]["color_vector"])], [user_vectors["color_vector"]])[0][0]
     position_similarity = cosine_similarity([ast.literal_eval(row["position_vector"])], [user_vectors["position_vector"]])[0][0]
     surface_similarity = cosine_similarity([ast.literal_eval(row["surface_vector"])], [user_vectors["surface_vector"]])[0][0]
     brand_similarity = cosine_similarity([ast.literal_eval(row["brand_vector"])], [user_vectors["brand_vector"]])[0][0]
